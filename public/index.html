@@ -9,11 +9,11 @@
 <body>
   <header class="site-header">
     <div class="container">
-      <h1 class="logo">Your Name</h1>
+      <h1 class="logo">Gabriel Duenas</h1>
       <nav>
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
+        <a href="/resume.pdf" target="_blank" rel="noopener">Resume</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -21,9 +21,12 @@
 
   <main class="container">
     <section class="hero">
-      <h2>Engineering Portfolio</h2>
-      <p>Systems engineer focused on scalable, reliable applications and embedded systems.</p>
-      <p class="cta"><a href="#projects">See my work</a></p>
+      <div class="hero-content">
+        <h2>Engineering Portfolio</h2>
+        <p>Junior at the California Academy of Mathematics and Science pursuing Engineering.</p>
+        <p class="cta"><a href="#projects">See my work</a></p>
+      </div>
+      <img class="hero-photo" src="/images/IMG_5198.jpg" alt="Your Name" />
     </section>
 
     <section id="about">
@@ -54,13 +57,20 @@
 
     <section id="skills">
       <h3>Skills</h3>
+      <h3>Skills</h3>
       <ul class="skills">
-        <li>Systems Design</li>
-        <li>Distributed Systems</li>
+        <li>Computer-Aided Design (Fusion 360, Inventor, Onshape) </li>
+        <li></li>
         <li>Embedded Systems</li>
         <li>DevOps & CI/CD</li>
         <li>Python / Node.js / C</li>
       </ul>
+    </section>
+
+    <section id="resume">
+      <h3>Resume</h3>
+      <p><a class="link" href="/resume.pdf" target="_blank" rel="noopener">Open PDF (click to view or download)</a></p>
+      <iframe class="resume-embed" src="/resume.pdf" title="Resume PDF"></iframe>
     </section>
 
     <section id="contact">

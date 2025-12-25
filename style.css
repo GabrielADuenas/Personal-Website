@@ -1,0 +1,32 @@
+/* Basic hero layout and profile photo */
+.hero {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+	padding: 2rem 0;
+}
+
+.hero-content {
+	flex: 1;
+}
+
+.hero-photo {
+	width: 160px;
+	height: 160px;
+	object-fit: cover;
+	border-radius: 50%;
+	flex-shrink: 0;
+	border: 3px solid rgba(0,0,0,0.08);
+}
+
+@media (max-width: 700px) {
+	.hero {
+		flex-direction: column;
+		text-align: center;
+	}
+	.hero-photo {
+		width: 120px;
+		height: 120px;
+	}
+}
+
