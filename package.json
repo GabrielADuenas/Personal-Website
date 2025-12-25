@@ -1,8 +1,7 @@
 {
   "name": "engineering-portfolio",
   "version": "1.0.0",
-  "description": "Simple engineering portfolio served with Node on port 5000",
-  "main": "server.js",
+  "description": "Simple engineering portfolio (static) — server.js for local testing only",
   "scripts": {
     "start": "node server.js"
   },
