@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Project — Engineering Portfolio</title>
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .project-detail{padding:28px;background:rgba(255,255,255,0.02);border-radius:10px}
+    .meta{color:var(--muted);margin-top:10px}
+    .back{display:inline-block;margin-top:16px;color:var(--accent)}
+  </style>
+</head>
+<body>
+  <header class="site-header"><div class="container"><h1 class="logo">Project</h1></div></header>
+  <main class="container">
+    <div id="content" class="project-detail">Loading…</div>
+    <p><a class="back" href="/">← Back to portfolio</a></p>
+  </main>
+
+  <script type="module">
+    function qs(name){
+      return new URLSearchParams(location.search).get(name);
+    }
+
+    let id = qs('id');
+    // If no `id` query param, try to read it from the pathname (/project/:id)
+    if (!id) {
+      const m = location.pathname.match(/\/project\/([^\/\?#]+)/);
+      if (m) id = m[1];
+    }
+    const el = document.getElementById('content');
+
+    if(!id){
+      el.innerHTML = '<strong>No project specified.</strong> Use <code>?id=project-a</code>.';
+    } else {
+      import('/projects.js').then(mod => {
+        const project = mod.getProject(id);
+        if(!project){
+          el.innerHTML = `<strong>Project not found:</strong> ${id}`;
+          return;
+        }
+
+        if(project.url){
+          // If a live URL is provided, redirect there.
+          window.location.href = project.url;
+          return;
+        }
+
+        const tech = (project.tech || []).map(t => `<li>${t}</li>`).join('');
+        el.innerHTML = `
+          <h2>${project.title}</h2>
+          <p>${project.description}</p>
+          <div class="meta">
+            <strong>Tech:</strong>
+            <ul>${tech}</ul>
+            <p><a class="link" href="${project.repo}" target="_blank" rel="noopener">Repository</a></p>
+          </div>
+        `;
+      }).catch(err => {
+        el.innerHTML = '<strong>Error loading project data.</strong>';
+      });
+    }
+  </script>
+</body>
+</html>
