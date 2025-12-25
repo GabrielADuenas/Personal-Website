@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Simple engineering portfolio (static) — server.js for local testing only",
   "scripts": {
-    "start": "node server.js"
+    "dev": "node server.js"
   },
   "author": "Your Name",
   "license": "MIT"

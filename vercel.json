@@ -1,9 +1,6 @@
 {
   "version": 2,
-  "builds": [
-    { "src": "public/**/*", "use": "@vercel/static" }
-  ],
-  "rewrites": [
-    { "source": "/project/:id", "destination": "/project.html?id=:id" }
+  "routes": [
+    { "src": "/project/(.*)", "dest": "/project.html?id=$1" }
   ]
 }
