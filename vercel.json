@@ -3,9 +3,7 @@
   "builds": [
     { "src": "public/**/*", "use": "@vercel/static" }
   ],
-  "routes": [
-    { "src": "^/project/(.*)$", "dest": "/project.html?id=$1" },
-    { "src": "^/$", "dest": "/index.html" },
-    { "src": "^/(.*)$", "dest": "/$1" }
+  "rewrites": [
+    { "source": "/project/:id", "destination": "/project.html?id=:id" }
   ]
 }
